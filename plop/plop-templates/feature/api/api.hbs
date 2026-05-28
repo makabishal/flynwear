@@ -1,0 +1,33 @@
+import api, { IApiResponse } from '@/lib/api/http-client';
+
+import { {{constantCase name}}_ENDPOINTS } from '../constants';
+import { I{{properCase name}}, TCreate{{properCase name}}, TUpdate{{properCase name}} } from '../types';
+
+
+class {{properCase name}}Api {
+  async create(data: TCreate{{properCase name}}): Promise<IApiResponse<I{{properCase name}}>> {
+    return api.post({{constantCase name}}_ENDPOINTS.BASE, data);
+  }
+
+  async getById(id: string): Promise<IApiResponse<I{{properCase name}}>> {
+    return api.get({{constantCase name}}_ENDPOINTS.BY_ID(id));
+  }
+
+  async getAll(): Promise<IApiResponse<I{{properCase name}}[]>> {
+    return api.get({{constantCase name}}_ENDPOINTS.BASE);
+  }
+
+  async update(id: string, data: TUpdate{{properCase name}}): Promise<IApiResponse<I{{properCase name}}>> {
+    return api.put({{constantCase name}}_ENDPOINTS.BY_ID(id), data);
+  }
+
+  async partialUpdate(id: string, data: Partial<TUpdate{{properCase name}}>): Promise<IApiResponse<I{{properCase name}}>> {
+    return api.patch({{constantCase name}}_ENDPOINTS.BY_ID(id), data);
+  }
+
+  async delete(id: string): Promise<IApiResponse<null>> {
+    return api.delete({{constantCase name}}_ENDPOINTS.BY_ID(id));
+  }
+}
+
+export const {{camelCase name}}Api = new {{properCase name}}Api();

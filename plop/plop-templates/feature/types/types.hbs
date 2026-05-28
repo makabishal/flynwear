@@ -1,0 +1,14 @@
+export type TCreate{{properCase name}} = {
+  value: string; 
+  // Define create input fields
+};
+
+export type TUpdate{{properCase name}} = TCreate{{properCase name}} & {
+  id: string; 
+  // Define update input fields
+};
+
+export interface I{{properCase name}} {
+  id: string; 
+  // Define returned entity fields
+}

@@ -1,0 +1,29 @@
+import { useMutation, UseMutationOptions, useQuery, UseQueryOptions } from '@tanstack/react-query';
+import { toast } from 'sonner';
+
+import { IApiError, IApiResponse } from '@/lib/api/http-client';
+
+import { {{camelCase name}}Api } from '../api';
+import { {{camelCase name}}QueryKey } from '../constants';
+import { I{{properCase name}}, TCreate{{properCase name}} } from '../types';
+
+export const useCreate{{properCase name}} = (
+  options?: UseMutationOptions<IApiResponse<I{{properCase name}}>, IApiError, TCreate{{properCase name}}>,
+) =>
+  useMutation({
+    mutationFn: (payload) => {{camelCase name}}Api.create(payload),
+    onSuccess: () => toast.success('{{properCase name}} created successfully'),
+    onError: (error) => toast.error(error.message || 'Failed to create {{camelCase name}}'),
+    ...options,
+  });
+
+export const useGet{{properCase name}} = (
+  id: string,
+  options?: UseQueryOptions<IApiResponse<I{{properCase name}}>, IApiError>,
+) =>
+  useQuery({
+    queryKey: [{{camelCase name}}QueryKey.getById, id],
+    queryFn: () => {{camelCase name}}Api.getById(id),
+    enabled: !!id,
+    ...options,
+  });

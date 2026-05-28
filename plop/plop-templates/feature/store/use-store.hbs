@@ -1,0 +1,12 @@
+import { create } from 'zustand';
+
+interface {{camelCase name}}State {
+  // Define your state properties here
+  value: number;
+  setValue: (value: number) => void;
+}
+
+export const use{{pascalCase name}}Store = create<{{camelCase name}}State>((set) => ({
+  value: 0,
+  setValue: (value) => set({ value }),
+})); 

@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 6969",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "next start --port 6969",
+    "lint": "next lint",
+    "plop": "plop --plopfile plop/plopfile.js --dest ."
   },
   "dependencies": {
+    "lucide-react": "^1.17.0",
     "next": "16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"
@@ -20,6 +22,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "plop": "^4.0.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
