@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useScrollDirection } from "@/common/hooks/use-scroll-direction";
-import { siteContent } from "@data/site.mock";
 import { BrandLogo } from "@/common/components/layout/brand-logo";
 import { cn } from "@/common/lib/utils";
 
@@ -29,28 +28,20 @@ export function StoreHeader() {
       }}
       transition={{ duration: 0.25, ease: "easeOut" }}
     >
-      <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4">
-          <Link href="/" className="group flex items-center gap-3">
-            <BrandLogo size="sm" priority />
-            <div className="flex flex-col">
-              <span className="font-heading text-2xl font-bold tracking-[0.2em] sm:text-3xl">
-                FLYNWEAR
-              </span>
-              <motion.span
-                className="text-xs uppercase tracking-[0.35em] text-muted-foreground"
-                animate={{
-                  opacity: collapsed ? 0 : 1,
-                  height: collapsed ? 0 : "auto",
-                }}
-              >
-                {siteContent.slogan}
-              </motion.span>
-            </div>
-          </Link>
-        </div>
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-8 px-4 sm:px-6 lg:px-8">
+        {/* Logo Section */}
+        <Link href="/" className="group flex items-center gap-3 shrink-0">
+          <BrandLogo size="sm" priority />
+          <div className="flex flex-col">
+            <span className="font-heading text-2xl font-bold tracking-[0.2em] sm:text-3xl">
+              FLYNWEAR
+            </span>
+          </div>
+        </Link>
+
+        {/* Navigation Section */}
         <motion.nav
-          className="flex flex-wrap gap-1 sm:gap-2"
+          className="flex flex-wrap items-center justify-end gap-1 sm:gap-2"
           animate={{ scale: collapsed ? 0.98 : 1 }}
         >
           {navItems.map((item) => {

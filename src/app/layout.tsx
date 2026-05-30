@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Inter } from "next/font/google";
+import { Anton, Inter } from "next/font/google";
 import { SiteFooter } from "@/common/components/layout/site-footer";
 import { StoreHeader } from "@/common/components/layout/store-header";
 import "./globals.css";
 
 const inter = Inter({
-  variable: "--font-sans",
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const bebas = Bebas_Neue({
-  variable: "--font-heading",
+const anton = Anton({
+  variable: "--font-anton",
   weight: "400",
   subsets: ["latin"],
 });
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${bebas.variable} dark h-full antialiased`}
+      className={`${inter.variable} ${anton.variable} dark h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         <StoreHeader />
